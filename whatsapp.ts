@@ -1,4 +1,4 @@
-import { Client, LocalAuth } from "whatsapp-web.js";
+import WAWebJS, { Client, LocalAuth } from "whatsapp-web.js";
 import QRCode from "qrcode-terminal";
 
 // const client = new Client({});
@@ -27,7 +27,7 @@ export default class WhatsAppClient {
 		});
 	}
 
-	public onMessage(callback: (message: any) => void): void {
+	public onMessage(callback: (message: WAWebJS.Message) => void): void {
 		this.client.on("message", callback);
 	}
 
