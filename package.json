@@ -1,20 +1,21 @@
 {
-  "name": "survey2list",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@types/qrcode-terminal": "^0.12.2",
-    "tsx": "^4.19.4"
-  },
-  "dependencies": {
-    "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.28.0"
-  }
+	"name": "survey2list",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "tsx main.ts --env-file .env"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"devDependencies": {
+		"@types/qrcode-terminal": "^0.12.2",
+		"tsx": "^4.19.4"
+	},
+	"dependencies": {
+		"qrcode-terminal": "^0.12.0",
+		"whatsapp-web.js": "^1.28.0"
+	}
 }

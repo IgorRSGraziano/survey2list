@@ -6,12 +6,14 @@ import QRCode from "qrcode-terminal";
 export default class WhatsAppClient {
 	private constructor(private readonly client: Client) {}
 
-	public async connect() {
+	public static async connect(): Promise<WhatsAppClient> {
 		const client = new Client({
 			authStrategy: new LocalAuth({}),
 		});
 
 		return new Promise((resolve, reject) => {
+			client.initialize();
+
 			client.on("qr", (qr) => {
 				QRCode.generate(qr, { small: true });
 			});
@@ -23,5 +25,13 @@ export default class WhatsAppClient {
 				reject(new Error("Authentication failure: " + msg));
 			});
 		});
+	}
+
+	public onMessage(callback: (message: any) => void): void {
+		this.client.on("message", callback);
+	}
+
+	public async getLastSurvey(groupId: string): Promise<any> {
+		const group = await this.client.getChatById(groupId);
 	}
 }
